@@ -61,6 +61,10 @@ ifeq ($(CONFIG_NET_W5500),y)
 CSRCS += esp32_w5500.c
 endif
 
+ifeq ($(CONFIG_ETC_ROMFS),y)
+  RCSRCS = etc/init.d/rc.sysinit etc/init.d/rcS
+endif
+
 DEPPATH += --dep-path board
 VPATH += :board
 CFLAGS += ${INCDIR_PREFIX}$(TOPDIR)$(DELIM)arch$(DELIM)$(CONFIG_ARCH)$(DELIM)src$(DELIM)board$(DELIM)board
